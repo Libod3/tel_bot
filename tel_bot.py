@@ -1,6 +1,5 @@
 import telebot
 from random import randint
-import webbrowser
 
 bot = telebot.TeleBot("7254662710:AAEWVqYJrmzmXYt7DfSXND1rvbGNB5gUaDM")
 
