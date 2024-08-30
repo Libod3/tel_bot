@@ -1,8 +1,10 @@
 import telebot
-import requests
+from tmp import get_supporter_b1
 
 bot = telebot.TeleBot("7389746767:AAFk13WSXbrw8Nu9ce5Nac1X_15lj-IgYS8")
-API = "99cb9e798fmsh417cc6381083be6p1014fcjsn847bb94bfa59"
+API = "99cb9e798fmsh417cc6381083be6p1014fcjsn847bb94bfa59"  # Не уверен в надобности API
+
+
 # zodiac_signs = {
 #     "Aries": "овен",
 #     "Taurus": "телец",
@@ -44,8 +46,9 @@ def start(message):
                      reply_markup=markup)
 
 
+@bot.callback_query_handler(func=lambda callback: True)
+def callback(callback):
+    bot.send_message(callback.message.chat.id, f"Твоё предсказание: {get_supporter_b1(callback.message.text)}")
 
 
 bot.polling(none_stop=True)
-
-
